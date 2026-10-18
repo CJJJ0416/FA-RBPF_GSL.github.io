@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="author" content="Jinhao Chen">
+  <meta name="description" content="面向公共空间防爆防化任务的移动机器人研究提案，结合室内跨楼层导航、气体感知、主动溯源与可复核的任务交接。寻找跨学科研究伙伴。">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="公共空间防爆防化自主巡检与危险源定位">
+  <meta property="og:description" content="室内跨楼层导航、气体感知与主动溯源。一个面向公共空间安全、欢迎跨学科合作的研究提案。">
+  <title>公共空间防爆防化自主巡检与危险源定位 · Red bird project</title>
+  <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./static/css/site.css">
+  <script type="importmap">{"imports":{"three":"./static/vendor/three/three.module.min.js"}}</script>
+  <script defer src="./static/js/site.js"></script>
+  <script type="module" src="./static/js/scenario-viewer.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳至正文 / Skip to content</a>
+  <div class="masthead">
+    <div class="topbar container">
+      <div class="project-identity">
+        <a class="university-logo" href="https://www.hkust-gz.edu.cn/" target="_blank" rel="noopener noreferrer" aria-label="HKUST(GZ) official website"><img src="./static/images/hkust-gz-logo.png" width="1920" height="494" alt="The Hong Kong University of Science and Technology (Guangzhou)"></a>
+        <a class="top-label" href="#overview">Red bird project<span>RESEARCH PROPOSAL</span></a>
+      </div>
+      <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to English">EN <span aria-hidden="true">↔</span> 中文</button>
+    </div>
+  </div>
+  <main id="main-content">
+    <header class="publication-header container" id="overview">
+      <p class="eyebrow" data-i18n="hero.eyebrow">公共空间安全 · 移动机器人 · 跨学科合作</p>
+      <h1 data-i18n="hero.title">面向公共空间防爆防化任务的<br class="desktop-break">自主巡检与危险源定位</h1>
+      <p class="english-title" data-i18n="hero.subtitle">Autonomous Robotic Inspection and Hazard Source Localization<br>for Explosive and Chemical Threat Prevention in Public Spaces</p>
+      <p class="publication-status" data-i18n="hero.status">研究提案 · 正在寻找跨学科研究伙伴</p>
+      <nav class="publication-links" aria-label="Project resources">
+        <a class="resource-button" data-outline-link href="./static/docs/proposal-outline-zh.md" download><span aria-hidden="true">↓</span><span data-i18n="button.outline">项目大纲</span></a>
+        <a class="resource-button" href="#method"><span aria-hidden="true">↗</span><span data-i18n="button.plan">研究路线</span></a>
+        <a class="resource-button" href="https://github.com/CJJJ0416/FA-RBPF_GSL.github.io" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8A11.2 11.2 0 0 0 8.5 22.6c.6.1.8-.2.8-.5v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.6 4.3 18.6 4.6 18.6 4.6c.7 1.6.3 2.8.2 3.1.7.8 1.2 1.8 1.2 3.1 0 4.5-2.8 5.5-5.5 5.8.5.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.2 11.2 0 0 0 12 .8Z"/></svg><span>GitHub</span></a>
+        <a class="resource-button accent" href="#team"><span aria-hidden="true">+</span><span data-i18n="button.join">参与研究</span></a>
+      </nav>
+    </header>
+
+    <section class="teaser container" aria-label="Research concept">
+      <div class="teaser-figure">
+        <img id="concept-image" src="./static/images/mission-zh.svg" width="1440" height="750" alt="公共交通室内空间中，机器人巡检、气体感知、主动溯源与专业复核的研究概念图">
+      </div>
+      <p class="figure-caption" data-i18n="hero.caption">研究概念示意：在室内与跨楼层环境中采样，逐步缩小疑似来源范围，并形成可复核的任务记录。</p>
+      <p class="figure-note" data-i18n="hero.note">构图参考 <a href="https://arxiv.org/abs/2605.19958" target="_blank" rel="noopener noreferrer">TravExplorer · Fig. 1</a>，为本提案重新绘制；场景照片来自已有 GlocalNav 导航实验，气体巡检整合与验证属于拟开展研究。</p>
+      <p class="figure-note" data-i18n="hero.handover">查看原图：<a href="./static/images/research/quadruped-inspection-hardware.png" target="_blank" rel="noopener noreferrer">四足平台硬件配置</a> · 交接线索示例：<a href="./static/images/research/handover-location.png" target="_blank" rel="noopener noreferrer">来源位置</a> · <a href="./static/images/research/handover-target.png" target="_blank" rel="noopener noreferrer">阀门与法兰识别</a>。</p>
+      <nav class="section-nav" aria-label="Sections">
+        <a href="#abstract" data-i18n="nav.abstract">摘要</a><a href="#scenarios" data-i18n="nav.scenarios">应用场景</a><a href="#method" data-i18n="nav.method">研究路线</a><a href="#foundation" data-i18n="nav.foundation">已有基础</a><a href="#validation" data-i18n="nav.validation">验证计划</a><a href="#team" data-i18n="nav.team">团队招募</a>
+      </nav>
+    </section>
+
+    <section class="section shaded" id="abstract">
+      <div class="reading-width">
+        <h2 data-i18n="abstract.title">项目摘要</h2>
+        <p class="section-kicker">ABSTRACT</p>
+        <div class="prose">
+          <p data-i18n="abstract.p1">本项目面向高铁站、地铁站和机场等公共空间的防爆防化任务，拟将室内自主跨楼层导航、目标适配的气体感知与主动溯源结合起来。机器人通过多位置采样发现疑似危险信号，逐步缩小来源范围，为专业人员提供可复核的位置线索与观测依据。</p>
+          <p data-i18n="abstract.p2">研究围绕目标信号的可靠检出、受空间约束的主动采样、来源不确定性估计及任务交接展开。首期以一处室内区域、一类明确目标和单机器人原型为起点，先建立可测性，再通过受控实验与合作场景评价完整任务的有效性。</p>
+        </div>
+        <p class="scope-note" data-i18n="abstract.scope">研究阶段：公共空间目标物的检测与定位能力将单独验证；现有室内乙醇实验作为技术基础。专业人员负责最终复核与处置。</p>
+      </div>
+    </section>
+
+    <section class="section" id="scenarios">
+      <div class="container">
+        <h2 data-i18n="scenarios.title">公共空间中的具体任务</h2>
+        <p class="section-kicker">APPLICATION SCENARIOS</p>
+        <p class="section-intro" data-i18n="scenarios.intro">从允许进入、能够采样、可以确认来源的室内区域开始，与合作方共同确定首期任务。</p>
+        <div class="scenario-tabs" role="tablist" aria-label="Transport settings">
+          <button type="button" id="tab-metro" role="tab" aria-selected="true" aria-controls="scenario-panel" tabindex="0" data-scenario="metro" data-i18n="scenario.metro">地铁站</button>
+          <button type="button" id="tab-rail" role="tab" aria-selected="false" aria-controls="scenario-panel" tabindex="-1" data-scenario="rail" data-i18n="scenario.rail">高铁站</button>
+          <button type="button" id="tab-airport" role="tab" aria-selected="false" aria-controls="scenario-panel" tabindex="-1" data-scenario="airport" data-i18n="scenario.airport">机场</button>
+        </div>
+        <div class="scenario-panel" id="scenario-panel" role="tabpanel" aria-labelledby="tab-metro" tabindex="0">
+          <figure class="scenario-3d">
+            <div class="scene-toolbar">
+              <span class="scene-tag">3D <span data-i18n="viewer.explore">空间探索</span></span>
+            </div>
+            <div class="scene-stage" id="scene-stage" aria-busy="true">
+              <div class="scene-status" id="scene-status" role="status">正在加载三维场景… / Loading 3D scene…</div>
+              <div class="scene-labels" id="scene-labels" aria-hidden="true"></div>
+              <span class="scene-caption" data-i18n="viewer.cutaway">室内空间 · 剖开式概念模型</span>
+            </div>
+            <div class="scene-controls" role="group" aria-label="3D camera controls">
+              <span class="scene-help" id="scene-help" data-i18n="viewer.help">拖动旋转 · 滚轮 / 双指缩放</span>
+              <div>
+                <button type="button" id="scene-zoom-in" aria-label="Zoom in">+</button>
+                <button type="button" id="scene-zoom-out" aria-label="Zoom out">−</button>
+                <button type="button" id="scene-top" data-i18n="viewer.top">俯视</button>
+                <button type="button" id="scene-reset" data-i18n="viewer.reset">复位</button>
+              </div>
+            </div>
+            <figcaption class="scene-credit"><span data-i18n="viewer.credit">原创空间示意与公开 CC0 交通模型；非真实场站工程 CAD。</span> <a href="./static/models/sources.html" target="_blank" rel="noopener noreferrer" data-i18n="viewer.sources">模型来源 ↗</a></figcaption>
+          </figure>
+          <div class="scenario-description">
+            <span class="scenario-index" id="scenario-index">01 / METRO</span>
+            <h3 id="scenario-title">站内设备与维护空间</h3>
+            <p id="scenario-text">围绕经授权进入的设备间、维护通道及相邻楼层，研究异常观测的复测与来源范围缩小。</p>
+            <p class="scenario-condition" id="scenario-condition">试点输入：具体检查任务、目标样本、常见干扰、允许采样的位置及专业复核方式。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shaded" id="method">
+      <div class="container">
+        <h2 data-i18n="method.title">拟开展的研究路线</h2>
+        <p class="section-kicker">PROPOSED APPROACH</p>
+        <p class="section-intro" data-i18n="method.intro">把目标感知、移动决策和来源估计组织成连续的巡检过程。</p>
+        <img class="architecture-image" id="architecture-image" src="./static/images/architecture-zh.svg" width="1440" height="390" loading="lazy" alt="目标采样、异常检测、主动采样、源位置估计和证据交接的研究架构">
+        <div class="research-questions">
+          <article><span>Q1</span><div><h3 data-i18n="q1.title">什么信号能够可靠检出</h3><p data-i18n="q1.text">限定目标与背景条件，研究交叉响应、温湿度、基线变化和传感器动态，建立可重复的测量依据。</p></div></article>
+          <article><span>Q2</span><div><h3 data-i18n="q2.title">下一步去哪里采样</h3><p data-i18n="q2.text">结合通行时间、楼层连通、可达性和信息收益，选择下一检查位置，并与固定巡检路线对照。</p></div></article>
+          <article><span>Q3</span><div><h3 data-i18n="q3.title">怎样缩小来源范围</h3><p data-i18n="q3.text">融合气体观测、机器人位姿、空间几何与可用气流信息，更新来源估计并保留不确定性。</p></div></article>
+          <article><span>Q4</span><div><h3 data-i18n="q4.title">怎样让结果可以复核</h3><p data-i18n="q4.text">把来源范围关联至可检查对象，提供时间、位置、观测和未覆盖区域，评价专业人员接手后的可用性。</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="foundation">
+      <div class="container">
+        <h2 data-i18n="foundation.title">已有研究基础</h2>
+        <p class="section-kicker">EXISTING RESEARCH FOUNDATION</p>
+        <p class="section-intro" data-i18n="foundation.intro">两项已有研究分别提供室内移动能力与气体源定位经验，为本提案的系统集成与场景验证提供起点。</p>
+
+        <article class="research-study" id="glocalnav">
+          <div class="study-heading"><span class="study-index">01 / MOBILITY</span><h3 data-i18n="navStudy.title">GlocalNav · 室内跨楼层自主导航</h3></div>
+          <p class="study-lead" data-i18n="navStudy.lead">围绕四足机器人在三维室内空间中的通行，已有研究覆盖走廊、窄门和带障碍物的楼梯。它为机器人到达检查区域、通过楼层连接并执行采样任务提供移动基础。</p>
+          <ul class="capability-tags" aria-label="Navigation research topics"><li data-i18n="navStudy.tag1">跨楼层通行</li><li data-i18n="navStudy.tag2">室内避障</li><li data-i18n="navStudy.tag3">实机验证</li></ul>
+          <div class="research-gallery navigation-gallery">
+            <figure>
+              <a class="research-image-link" href="./static/images/research/navigation-scenes.jpg" target="_blank" rel="noopener noreferrer" aria-labelledby="navigation-scenes-caption"><img src="./static/images/research/navigation-scenes.jpg" width="1600" height="1200" loading="lazy" data-i18n-alt="navStudy.scenesAlt" alt="GlocalNav 实机实验的走廊、楼梯、窄门及 Go2 EDU 四足平台"></a>
+              <figcaption id="navigation-scenes-caption" data-i18n="navStudy.scenesCaption">实机环境与平台：走廊、楼梯、窄门及四足机器人。图源：GlocalNav 实验场景图。点击查看大图。</figcaption>
+            </figure>
+            <figure class="video-figure">
+              <a class="video-window" href="https://www.bilibili.com/video/BV1XtrTBrEcE/" target="_blank" rel="noopener noreferrer" aria-labelledby="navigation-video-title">
+                <img src="./static/images/research/navigation-stairs.jpg" width="1600" height="1555" loading="lazy" data-i18n-alt="navStudy.videoAlt" alt="GlocalNav 楼梯避障实验，用作跨楼层巡检演示视频的入口预览图">
+                <span class="video-badge">BILIBILI ↗</span>
+                <span class="play-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M12 7 26 16 12 25Z" fill="currentColor"/></svg></span>
+                <span class="video-copy"><strong id="navigation-video-title" data-i18n="navStudy.videoTitle">跨楼层巡检演示</strong><span data-i18n="navStudy.videoAction">点击在 Bilibili 观看 ↗</span></span>
+              </a>
+              <figcaption data-i18n="navStudy.videoCaption">预览图：GlocalNav 楼梯避障实验。点击窗口将在新标签页打开演示视频。</figcaption>
+              <a class="text-link" href="./static/images/research/navigation-stairs.jpg" target="_blank" rel="noopener noreferrer" data-i18n="navStudy.figureLink">查看完整楼梯实验图 ↗</a>
+            </figure>
+          </div>
+          <div class="study-facts">
+            <div><h4 data-i18n="study.platform">实验平台</h4><p data-i18n="navStudy.platform">Unitree Go2 EDU、Livox Mid360 与 Jetson Orin NX 机载计算。</p></div>
+            <div><h4 data-i18n="study.evidence">已有实验</h4><p data-i18n="navStudy.evidence">稿件报告三类实机场景，每类重复 10 次；楼梯实验仍出现感知盲区相关失败。</p></div>
+            <div><h4 data-i18n="study.relevance">对提案的支撑</h4><p data-i18n="navStudy.relevance">为检查区域间通行、楼层连接和采样位置执行提供导航基础。</p></div>
+          </div>
+          <div class="study-links"><a class="resource-button" href="https://gitee.com/fdsf3e2342/3d_navi_ros2" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><span data-i18n="navStudy.repo">Gitee · 跨楼层巡检项目</span></a><a class="text-link" href="https://www.bilibili.com/video/BV1XtrTBrEcE/" target="_blank" rel="noopener noreferrer" data-i18n="navStudy.watch">观看演示视频 ↗</a></div>
+        </article>
+
+        <article class="research-study gas-story" id="gas-localization">
+          <div class="study-heading"><span class="study-index">02 / GAS SOURCE LOCALIZATION</span><h3 data-i18n="gasStudy.title">室内气体源定位</h3></div>
+          <div class="gas-narrative">
+            <p class="gas-opening" data-i18n="gasStudy.lead">这项研究要解决的问题是：<strong>机器人在室内发现气体异常后，怎样进一步找到释放源的位置？</strong>已有工作让机器人在不同位置采样，将气体响应与地图中的位置对应起来，逐步形成源位置估计，供后续检查。</p>
+            <p data-i18n="gasStudy.process"><strong>从探索到定位，前一阶段的空间信息会延续到后一阶段。</strong>在尚未确认气体信号时，机器人先探索可通行区域，并保留经过位置与空间连通信息；发现信号后，再结合这些已有空间记录建立候选来源范围。后续移动围绕补充观测、减少来源不确定性展开，最终输出源位置估计，而不是在第一次出现响应时就结束任务。</p>
+            <p data-i18n="gasStudy.platform">下图展示了现有实验系统：轮式机器人搭载 BME680 金属氧化物气体传感器、Livox Mid360 激光雷达与 Jetson 机载计算。实验使用可控的乙醇释放源；机器人一边移动，一边记录气体响应和所在位置，再将估计位置与实际源位置进行对照。</p>
+            <figure class="gas-hardware-figure">
+              <a class="research-image-link" href="./static/images/research/gas-hardware.jpg" target="_blank" rel="noopener noreferrer" aria-labelledby="gas-hardware-caption"><img src="./static/images/research/gas-hardware.jpg" width="1600" height="1132" loading="lazy" data-i18n-alt="gasStudy.hardwareAlt" alt="轮式气体采样平台、乙醇实验源与两处实验源位置的照片"></a>
+              <figcaption id="gas-hardware-caption" data-i18n="gasStudy.hardwareCaption">实验系统与场地：移动采样平台、乙醇释放源，以及两处源位置的室内实验环境。点击查看大图。</figcaption>
+            </figure>
+            <p data-i18n="gasStudy.evidence"><strong>两次实机运行都从探索进入了源位置估计阶段，并给出了靠近放置源的位置结果。</strong>下表说明这两次运行实际记录了什么。另一次对照运行在探索目标耗尽后结束，没有进入定位阶段；它提示我们，“走过可见空间”本身并不能保证获得足够的气体观测。</p>
+            <div class="gas-results-wrap"><table class="gas-results"><caption data-i18n="gasStudy.tableCaption">两次实机运行的记录（乙醇实验源）</caption><thead><tr><th scope="col" data-i18n="gasStudy.metric">记录项</th><th scope="col" data-i18n="gasStudy.trial1">运行 1</th><th scope="col" data-i18n="gasStudy.trial2">运行 2</th></tr></thead><tbody><tr><th scope="row" data-i18n="gasStudy.duration">轨迹记录时长</th><td>191.6 s</td><td>307.6 s</td></tr><tr><th scope="row" data-i18n="gasStudy.travel">累计行驶距离</th><td>7.7 m</td><td>14.6 m</td></tr><tr><th scope="row" data-i18n="gasStudy.error">估计位置与放置源的距离</th><td>0.37 m</td><td>0.08 m</td></tr></tbody></table></div>
+            <p class="gas-results-note" data-i18n="gasStudy.measurement">源放置位置约有 0.3 m 不确定性，0.08 m 应理解为与放置位置一致，不能据此宣称厘米级精度。记录时长不是独立核验的自动定位耗时；两次运行也不能代表稳定成功率。传感器使用 MOX 相对响应，尚未作为目标物定量浓度测量。</p>
+            <p data-i18n="gasStudy.simulationLead">除实机可行性研究外，项目还在单房间、多房间和办公室布局中开展仿真，分别考察发现气体前的搜索、发现后的来源估计，以及更复杂空间中的完整任务。下图给出这些测试环境，帮助说明验证覆盖的空间范围。</p>
+            <figure class="gas-simulation-figure"><a class="research-image-link" href="./static/images/research/gas-simulation.png" target="_blank" rel="noopener noreferrer" aria-labelledby="gas-simulation-caption"><img src="./static/images/research/gas-simulation.png" width="1600" height="400" loading="lazy" data-i18n-alt="gasStudy.simulationAlt" alt="气体源定位研究使用的单房间、多房间和办公室三类仿真环境"></a><figcaption id="gas-simulation-caption" data-i18n="gasStudy.simulationCaption">仿真环境由左至右：单房间、多房间和办公室。用于研究室内搜索，不代表交通场站实地部署。</figcaption></figure>
+            <p class="gas-proposal-link" data-i18n="gasStudy.relevance">这项工作为本提案提供的是<strong>“移动采样—估计来源位置”这一环节的实验基础</strong>。下一步拟将它与 GlocalNav 的跨楼层通行能力结合，让机器人能够到达不同检查区域并执行采样。当前实机实验使用的是轮式平台和乙醇源；四足平台整合，以及防爆防化目标物的感知与定位，仍是后续需要验证的内容。</p>
+            <p class="gas-source-note" data-i18n="gasStudy.source">图文依据：From Exploration Memory to Source Belief 稿件中的实验系统、测试场景与运行记录。</p>
+          </div>
+        </article>
+        <p class="foundation-bridge" data-i18n="foundation.bridge"><strong>下一步：</strong>在明确目标物与试点条件后，将跨楼层通行、目标适配传感与主动采样整合，并评价完整巡检任务及专业交接的有效性。</p>
+      </div>
+    </section>
+
+    <section class="section shaded" id="validation">
+      <div class="container">
+        <h2 data-i18n="validation.title">验证计划与预期成果</h2>
+        <p class="section-kicker">VALIDATION & DELIVERABLES</p>
+        <ol class="roadmap">
+          <li><span class="phase-number">01</span><h3 data-i18n="phase1.title">具体任务</h3><p data-i18n="phase1.text">与合作方确定场所、目标、检查流程和来源确认方式。</p><span class="deliverable" data-i18n="phase1.output">任务定义与需求依据</span></li>
+          <li><span class="phase-number">02</span><h3 data-i18n="phase2.title">样本可测性</h3><p data-i18n="phase2.text">比较目标、背景与干扰，建立参考测量和跨日期数据。</p><span class="deliverable" data-i18n="phase2.output">样本库与采样规范</span></li>
+          <li><span class="phase-number">03</span><h3 data-i18n="phase3.title">机器人原型</h3><p data-i18n="phase3.text">集成导航、主动采样、来源估计及完整任务记录。</p><span class="deliverable" data-i18n="phase3.output">单机器人原型与对照实验</span></li>
+          <li><span class="phase-number">04</span><h3 data-i18n="phase4.title">场景复核</h3><p data-i18n="phase4.text">开展小范围重复验证，收集专业人员的交接反馈。</p><span class="deliverable" data-i18n="phase4.output">验证报告与交接模板</span></li>
+        </ol>
+        <p class="metrics-line" data-i18n="validation.metrics"><strong>评价重点：</strong>独立任务检出率、误报次数、全部任务的定位误差、形成可交接结果的时间，以及专业人员的复核结果。</p>
+        <p class="figure-note" data-i18n="validation.conditions">首期从非危险替代物及可控实验开始。具体目标、试点条件与验收要求由专业合作方共同确定。</p>
+      </div>
+    </section>
+
+    <section class="section" id="team">
+      <div class="reading-width">
+        <h2 data-i18n="team.title">寻找跨学科研究伙伴</h2>
+        <p class="section-kicker">JOIN THE RESEARCH</p>
+        <p class="section-intro" data-i18n="team.intro">欢迎带着你的专业经验加入，共同把具体任务、测量依据和机器人系统做扎实。</p>
+        <div class="team-list">
+          <article><span>01</span><div><h3 data-i18n="team.robotics">机器人与人工智能</h3><p data-i18n="team.roboticsText">室内导航、主动规划、概率估计与系统集成。</p></div><span class="role-mark" aria-hidden="true">↗</span></article>
+          <article><span>02</span><div><h3 data-i18n="team.materials">先进材料与气体传感</h3><p data-i18n="team.materialsText">MOX或电子鼻、材料释放、采样、标定及参考分析。</p></div><span class="role-mark" aria-hidden="true">↗</span></article>
+          <article><span>03</span><div><h3 data-i18n="team.data">数据科学与实验分析</h3><p data-i18n="team.dataText">时序观测、异常检测、数据规范与独立验证。</p></div><span class="role-mark" aria-hidden="true">↗</span></article>
+          <article><span>04</span><div><h3 data-i18n="team.transport">交通运营与公共安全</h3><p data-i18n="team.transportText">真实需求、场所对接、专业检测与任务复核流程。</p></div><span class="role-mark" aria-hidden="true">↗</span></article>
+        </div>
+        <div class="join-actions"><a class="resource-button" href="https://github.com/CJJJ0416/FA-RBPF_GSL.github.io/issues/new?template=collaboration.yml" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">↗</span><span data-i18n="team.contact">在 GitHub 发起交流</span></a><a class="text-link" data-outline-link href="./static/docs/proposal-outline-zh.md" download data-i18n="team.download">下载中文项目大纲 ↓</a></div>
+      </div>
+    </section>
+
+    <section class="section shaded" id="resources">
+      <div class="reading-width">
+        <div class="share-header"><h2 data-i18n="share.title">分享项目简介</h2><button class="copy-button" id="copy-summary" type="button" data-i18n="share.copy">复制简介</button></div>
+        <p class="share-summary" id="share-summary" data-i18n="share.summary">我们正在开展面向公共空间防爆防化任务的移动机器人研究，结合室内跨楼层导航、气体感知与主动溯源，为专业人员提供可复核的来源线索。欢迎机器人、先进材料与传感、数据科学、交通及公共安全方向的同学与合作方交流。</p>
+        <p id="copy-status" role="status" aria-live="polite"></p>
+        <details class="references"><summary data-i18n="references.title">相关研究与资料</summary><ul><li><a href="https://doi.org/10.1109/TRO.2024.3426368" target="_blank" rel="noopener noreferrer">Ojeda et al. Robotic Gas Source Localization With Probabilistic Mapping and Online Dispersion Simulation. IEEE T-RO, 2024.</a></li><li><a href="https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/" target="_blank" rel="noopener noreferrer" data-i18n="references.bosch">Bosch Sensortec：BME680官方资料</a></li><li data-i18n="references.internal">研究素材：GlocalNav 与 From Exploration Memory to Source Belief 两份稿件的实验环境、平台及验证描述。实机与仿真范围分别见“已有研究基础”。</li></ul></details>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="reading-width">
+    <section class="contribution" id="contribution" aria-labelledby="contribution-title">
+      <h2 id="contribution-title" data-i18n="contribution.title">项目贡献</h2>
+      <p class="contribution-kicker">CONTRIBUTION</p>
+      <div class="contributor"><a href="https://github.com/CJJJ0416" target="_blank" rel="noopener noreferrer">Jinhao Chen</a><p data-i18n="contribution.role">项目构思与提案撰写，机器人导航与气体溯源研究。</p></div>
+    </section>
+    <p class="footer-project">Red bird project · <span data-i18n="footer.status">研究提案 · 2026</span></p>
+    <p class="credits"><span data-i18n="footer.credit">页面布局参考</span> <a href="https://sust-test-org.github.io/TestWeb-ICRA.github.io/" target="_blank" rel="noopener noreferrer">TestWeb-ICRA</a> <span data-i18n="footer.and">与</span> <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>.<br><span data-i18n="footer.original">本页独立实现。研究概念图为本项目绘制；实验图片来自所提供的研究稿件。</span><br><span data-i18n="footer.logo">校标来源：</span><a href="https://www.hkust-gz.edu.cn/" target="_blank" rel="noopener noreferrer">HKUST(GZ)</a></p>
+  </div></footer>
+</body>
+</html>

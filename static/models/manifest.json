@@ -1,0 +1,33 @@
+{
+  "generator": "Open3D 0.19.0",
+  "units": "illustrative metres",
+  "scenes": {
+    "metro": {
+      "vertices": 3624,
+      "triangles": 3690,
+      "bounds": [
+        30.0,
+        6.799999999999999,
+        22.0
+      ]
+    },
+    "rail": {
+      "vertices": 4391,
+      "triangles": 4673,
+      "bounds": [
+        34.0,
+        8.350000000000001,
+        27.0
+      ]
+    },
+    "airport": {
+      "vertices": 1832,
+      "triangles": 2816,
+      "bounds": [
+        29.0,
+        6.09,
+        25.0
+      ]
+    }
+  }
+}

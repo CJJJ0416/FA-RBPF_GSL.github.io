@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>3D model sources · Red bird project</title><style>body{max-width:820px;margin:60px auto;padding:0 24px;font:16px/1.85 system-ui,sans-serif;color:#334155;background:#fff}h1{font-size:28px;color:#1e293b}h2{font-size:21px;margin-top:32px}a{color:#2563eb}table{border-collapse:collapse;width:100%;font-size:14px}td,th{text-align:left;padding:12px;border-bottom:1px solid #e2e8f0}p{margin:12px 0}.en{color:#64748b;font-size:14px}</style></head><body>
+<a href="../../index.html#scenarios">← 返回提案 / Back to proposal</a>
+<h1>三维场景素材与来源<br><span class="en">3D scenes, sources and scope</span></h1>
+<p>地铁、高铁站和机场的空间结构是为本提案制作的原创剖开式概念模型。它们用于展示站台、维护空间、楼梯与大厅的关系，不对应任何实际场站，不是施工 CAD、BIM 或已验证的机器人运行地图。</p>
+<p class="en">The metro, rail-station and airport interiors are original conceptual cutaways for this proposal. They illustrate spatial connections, rather than an actual facility, construction CAD, BIM, or a validated robot map.</p>
+<table><thead><tr><th>模型 / Model</th><th>下载 / Download</th></tr></thead><tbody>
+<tr><td>地铁空间 / Metro space</td><td><a href="metro.ply" download>PLY mesh</a></td></tr>
+<tr><td>高铁站空间 / Rail-station space</td><td><a href="rail.ply" download>PLY mesh</a></td></tr>
+<tr><td>机场空间 / Airport space</td><td><a href="airport.ply" download>PLY mesh</a></td></tr>
+</tbody></table>
+<h2>公开模型 / Public assets</h2>
+<p>场景中的城市列车与高速列车来自 <a href="https://kenney.nl/assets/train-kit" target="_blank" rel="noopener noreferrer">Kenney · Train Kit 1.1</a>，原作者附加署名为 Guus Vermeulen、Tony Schaer。许可：<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener noreferrer">CC0</a>（<a href="Kenney-License.txt">原始许可文件</a>）。导入时调整了朝向、尺寸，并转换为带顶点颜色的网格。</p>
+<p class="en">City and bullet train assets: Kenney Train Kit 1.1, with additional credits to Guus Vermeulen and Tony Schaer, under CC0. Imported assets were reoriented, resized and converted to vertex-colored meshes.</p>
+<p><a href="transport-assets.zip" download>下载列车模型与纹理 / Download train GLBs with texture (ZIP)</a></p>
+<h2>模型与交互 / Models and interaction</h2>
+<p>Open3D 0.19 用于构建空间几何、清理网格并导出模型。浏览器使用 Three.js 展示，模型与组件均随网页本地托管，可部署到 GitHub Pages。</p>
+<p class="en">Open3D 0.19 constructs the spatial geometry, cleans the meshes and exports the models. Three.js renders the interactive view. All runtime assets are hosted with the page, with no live Open3D server required.</p>
+<p>Three.js 0.180.0 · <a href="../vendor/three/LICENSE">MIT license</a> · <a href="manifest.json">模型统计 / Model manifest</a></p>
+</body></html>

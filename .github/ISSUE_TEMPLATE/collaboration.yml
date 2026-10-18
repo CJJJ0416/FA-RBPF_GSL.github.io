@@ -1,0 +1,34 @@
+name: Research collaboration
+description: Discuss joining or collaborating on the public-space safety proposal.
+title: "[Collaboration] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎交流！这里的内容会公开显示，请填写愿意公开的研究信息。
+        Welcome. This conversation is public; share only research information you intend to make public.
+  - type: textarea
+    id: background
+    attributes:
+      label: 专业背景 Research background
+      description: 介绍与你希望参与的方向相关的经验。Describe your relevant experience.
+    validations:
+      required: true
+  - type: dropdown
+    id: interest
+    attributes:
+      label: 希望参与的方向 Area of interest
+      multiple: true
+      options:
+        - Robotics and AI
+        - Materials and gas sensing
+        - Data science and experiments
+        - Transport operations and public safety
+        - Industry collaboration
+  - type: textarea
+    id: contribution
+    attributes:
+      label: 可以贡献的能力与想讨论的问题 Skills and questions
+    validations:
+      required: true
