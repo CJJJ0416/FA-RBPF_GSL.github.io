@@ -1,6 +1,17 @@
 "use strict";
 (() => {
   const english = {
+    "nav.demo": "Navigation replay",
+    "navigation.title": "Explore Random Multi-level Buildings",
+    "navigation.intro": "Switch buildings and routes to explore rooms, stairs, and narrow bridges along cross-floor reference paths, with RGB, depth, and LiDAR geometry previews.",
+    "navigation.map": "Building", "navigation.shuffleMap": "Random example", "navigation.route": "Reference route", "navigation.shuffleRoute": "Another route",
+    "navigation.badge": "Precomputed simulation", "navigation.reset": "Reset view", "navigation.top": "Top", "navigation.opacity": "Building opacity", "navigation.follow": "Follow", "navigation.points": "Point cloud",
+    "navigation.reference": "GPMP reference", "navigation.trail": "Played trail", "navigation.frustum": "Camera frusta", "navigation.depth": "Z depth",
+    "navigation.perspective": "Forward view · 90°", "navigation.panorama": "360° panorama", "navigation.position": "Reference position / m", "navigation.floor": "Floor", "navigation.hits": "LiDAR hits", "navigation.sampling": "Cache sampling",
+    "navigation.play": "Play", "navigation.restart": "Restart",
+    "navigation.help": "Drag to orbit · Scroll to zoom · Seek to inspect a moment. Buildings and routes are precomputed and served from static caches. Switching examples resets playback.",
+    "navigation.scope": "Scope: native GPMP references and ideal mesh sensor previews. Cameras and point clouds share sampled poses; the 3D position interpolates between samples. Geometry collision checks, robot dynamics, and gas dispersion remain separate validation tasks.",
+
     "hero.eyebrow": "PUBLIC-SPACE SAFETY · MOBILE ROBOTICS · INTERDISCIPLINARY RESEARCH",
     "hero.title": "Robotic Inspection for Explosive <br class=\"desktop-break\">and Chemical Threat Prevention",
     "hero.subtitle": "Autonomous inspection and hazard source localization <br>in public indoor and multi-level environments",

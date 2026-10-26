@@ -12,9 +12,11 @@
   <title>公共空间防爆防化自主巡检与危险源定位 · Red bird project</title>
   <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./static/css/site.css">
+  <link rel="stylesheet" href="./static/css/navigation.css">
   <script type="importmap">{"imports":{"three":"./static/vendor/three/three.module.min.js"}}</script>
   <script defer src="./static/js/site.js"></script>
   <script type="module" src="./static/js/scenario-viewer.js"></script>
+  <script type="module" src="./static/js/navigation-demo.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">跳至正文 / Skip to content</a>
@@ -49,7 +51,7 @@
       <p class="figure-note" data-i18n="hero.note">构图参考 <a href="https://arxiv.org/abs/2605.19958" target="_blank" rel="noopener noreferrer">TravExplorer · Fig. 1</a>，为本提案重新绘制；场景照片来自已有 GlocalNav 导航实验，气体巡检整合与验证属于拟开展研究。</p>
       <p class="figure-note" data-i18n="hero.handover">查看原图：<a href="./static/images/research/quadruped-inspection-hardware.png" target="_blank" rel="noopener noreferrer">四足平台硬件配置</a> · 交接线索示例：<a href="./static/images/research/handover-location.png" target="_blank" rel="noopener noreferrer">来源位置</a> · <a href="./static/images/research/handover-target.png" target="_blank" rel="noopener noreferrer">阀门与法兰识别</a>。</p>
       <nav class="section-nav" aria-label="Sections">
-        <a href="#abstract" data-i18n="nav.abstract">摘要</a><a href="#scenarios" data-i18n="nav.scenarios">应用场景</a><a href="#method" data-i18n="nav.method">研究路线</a><a href="#foundation" data-i18n="nav.foundation">已有基础</a><a href="#validation" data-i18n="nav.validation">验证计划</a><a href="#team" data-i18n="nav.team">团队招募</a>
+        <a href="#abstract" data-i18n="nav.abstract">摘要</a><a href="#scenarios" data-i18n="nav.scenarios">应用场景</a><a href="#method" data-i18n="nav.method">研究路线</a><a href="#foundation" data-i18n="nav.foundation">已有基础</a><a href="#navigation-demo" data-i18n="nav.demo">导航回放</a><a href="#validation" data-i18n="nav.validation">验证计划</a><a href="#team" data-i18n="nav.team">团队招募</a>
       </nav>
     </section>
 
@@ -175,6 +177,42 @@
           </div>
         </article>
         <p class="foundation-bridge" data-i18n="foundation.bridge"><strong>下一步：</strong>在明确目标物与试点条件后，将跨楼层通行、目标适配传感与主动采样整合，并评价完整巡检任务及专业交接的有效性。</p>
+      </div>
+    </section>
+
+    <section class="section shaded" id="navigation-demo" aria-labelledby="navigation-title">
+      <div class="navigation-shell">
+        <h2 id="navigation-title" data-i18n="navigation.title">走进随机生成的多层建筑</h2>
+        <p class="section-kicker">PROCEDURAL BUILDINGS · NAVIGATION & SENSOR REPLAY</p>
+        <p class="section-intro" data-i18n="navigation.intro">切换建筑与路线，沿跨楼层参考路径观察房间、楼梯和窄桥，同步查看 RGB、深度与激光雷达的几何观测。</p>
+        <div class="navigation-demo" id="navigation-player" aria-busy="true">
+          <div class="navigation-toolbar">
+            <label><span data-i18n="navigation.map">建筑示例</span><select id="nav-map" disabled aria-label="建筑示例 / Building example"></select></label>
+            <button type="button" id="nav-shuffle-map" disabled data-i18n="navigation.shuffleMap">随机切换示例</button>
+            <label class="navigation-route-label"><span data-i18n="navigation.route">参考路线</span><select id="nav-route" disabled aria-label="参考路线 / Reference route"></select></label>
+            <button type="button" id="nav-shuffle-route" disabled data-i18n="navigation.shuffleRoute">换条路线</button>
+          </div>
+          <div class="navigation-summary"><span id="nav-summary"></span><span class="navigation-badge" data-i18n="navigation.badge">预生成仿真缓存</span></div>
+          <div id="nav-status" class="navigation-status" role="status" aria-live="polite">滚动到此处后加载交互回放…</div>
+          <div class="navigation-views">
+            <div class="navigation-world">
+              <div id="nav-stage" class="navigation-stage" aria-label="可旋转的建筑与路线 / Interactive building and route" tabindex="0"><div id="nav-labels" class="navigation-labels" aria-hidden="true"><span id="nav-start-label">A</span><span id="nav-goal-label">B</span></div></div>
+              <div class="navigation-view-controls"><button type="button" id="nav-reset" disabled data-i18n="navigation.reset">恢复视角</button><button type="button" id="nav-top" disabled data-i18n="navigation.top">俯视</button><label><span data-i18n="navigation.opacity">建筑透明度</span><input id="nav-opacity" type="range" min="0.05" max="0.8" value="0.38" step="0.01"></label><label><input type="checkbox" id="nav-follow"><span data-i18n="navigation.follow">跟随</span></label><label><input type="checkbox" id="nav-points" checked><span data-i18n="navigation.points">点云</span></label></div>
+              <div class="navigation-legend"><span><i class="reference"></i><span data-i18n="navigation.reference">GPMP 参考线</span></span><span><i class="trail"></i><span data-i18n="navigation.trail">已播放轨迹</span></span><span><i class="depth"></i><span data-i18n="navigation.frustum">相机视锥</span></span><span>A → B</span></div>
+            </div>
+            <div class="navigation-sensors">
+              <div class="navigation-camera-pair">
+                <figure><figcaption>D435i · RGB</figcaption><img id="nav-rgb" alt="仿真 RGB / Synthetic RGB" width="320" height="180"></figure>
+                <figure><figcaption>D435i · <span data-i18n="navigation.depth">Z 深度</span></figcaption><img id="nav-depth" alt="仿真光轴 Z 深度 / Synthetic optical Z depth" width="320" height="180"><div class="navigation-depth-key"></div><div class="navigation-range"><span>0.3 m</span><span>3 m</span></div></figure>
+              </div>
+              <figure class="navigation-lidar"><figcaption>MID-360 <select id="nav-lidar-view" aria-label="LiDAR 投影视图 / LiDAR projection"><option value="perspective" data-i18n="navigation.perspective">前向透视 · 90°</option><option value="panorama" data-i18n="navigation.panorama">360° 全景</option></select></figcaption><img id="nav-lidar" alt="同一位姿的激光雷达距离图 / LiDAR range image at the replay pose" width="192" height="108"><div class="navigation-lidar-key"></div><div class="navigation-range"><span>0.1 m</span><span>10 m</span></div></figure>
+              <div class="navigation-readout"><div><span data-i18n="navigation.position">参考位置 / m</span><strong id="nav-position">—</strong></div><div><span data-i18n="navigation.floor">所在楼层</span><strong id="nav-floor">—</strong></div><div><span data-i18n="navigation.hits">雷达命中</span><strong id="nav-hits">—</strong></div><div><span data-i18n="navigation.sampling">缓存采样</span><strong id="nav-sampling">—</strong></div></div>
+            </div>
+          </div>
+          <div class="navigation-playbar"><button type="button" id="nav-play" disabled>▶ <span data-i18n="navigation.play">播放</span></button><button type="button" id="nav-restart" disabled data-i18n="navigation.restart">回到起点</button><input type="range" id="nav-seek" min="0" max="1" step="0.001" value="0" disabled aria-label="播放进度 / Playback progress"><output id="nav-clock">0:00 / 0:00</output><select id="nav-speed" aria-label="播放速度 / Playback speed"><option value="1">1×</option><option value="2" selected>2×</option><option value="4">4×</option><option value="8">8×</option></select></div>
+        </div>
+        <p class="navigation-help" data-i18n="navigation.help">拖动旋转 · 滚轮缩放 · 拖动进度条定位。示例与路线已提前生成，网站直接读取缓存；切换示例会重置播放进度。</p>
+        <p class="navigation-scope" data-i18n="navigation.scope">演示范围：原生 GPMP 参考路径与理想网格传感器回放。相机与点云沿相同采样位姿对应；两次采样之间，三维位置连续插值。路径未做几何碰撞验收，机器人动力学与气体扩散属于后续验证内容。</p>
       </div>
     </section>
 
